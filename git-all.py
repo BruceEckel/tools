@@ -14,11 +14,12 @@ if 'GIT_HOME' not in os.environ:
 def git_command(cmd):
     for gd in [x for x in Path(os.environ['GIT_HOME']).iterdir() if x.is_dir()]:
         os.chdir(gd)
+        print(".", end="", flush=True)
         result = subprocess.check_output("git " + cmd, shell=True).decode('ascii')
         if "Already up-to-date" in result:
             continue
         if result:
-            print(f"{'-'*10} [{gd.name}] {'-'*10}\n{result}")
+            print(f"\n{'-'*10} [{gd.name}] {'-'*10}\n{result}")
 
 
 @click.group()
