@@ -40,8 +40,9 @@ def status():
     git_command("status -s")
 
 
-@cli.command()
-def all_urls():
+repo_file = Path(__file__).parent / (platform.node() + "_repos.txt")
+
+def create_repo_file():
     "Produce urls of all repos on this machine"
     urls = []
     for gd in [x for x in Path(os.environ['GIT_HOME']).iterdir() if x.is_dir()]:
@@ -51,9 +52,31 @@ def all_urls():
             if line.startswith("url ="):
                 result = line.split()[-1]
         urls.append(result)
-    repo_list = Path(__file__).parent / (platform.node() + "_repos.txt")
-    repo_list.write_text("\n".join(sorted(urls)) + "\n")
-    os.system(f"cat {repo_list}")
+    repo_file.write_text("\n".join(sorted(urls)) + "\n")
+
+
+@cli.command()
+def repo_list():
+    "Store urls of all repos on this machine"
+    create_repo_file()
+    print(f"{repo_file}")
+    os.system(f"cat {repo_file}")
+
+
+@cli.command()
+def compare_repos():
+    "Show what's on other machines that aren't on this one"
+    if not repo_file.exists():
+        create_repo_file()
+    others = [f for f in Path(__file__).parent.glob("*_repos.txt") if f != repo_file]
+    local_repos = set(repo_file.read_text().splitlines())
+    for rf in others:
+        other_repos = set(rf.read_text().splitlines())
+        diff = other_repos - local_repos
+        if diff:
+            diffs = '\n'.join(diff)
+            other_name = str(rf.name)[:len("_repos.txt")]
+            print(f"{other_name} contains the following, which are not on this machine:\n{diffs}\n")
 
 
 if __name__ == '__main__':
