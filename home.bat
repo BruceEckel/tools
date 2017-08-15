@@ -1,2 +1,2 @@
 @echo off
-cd %GIT_HOME%\AtomicKotlin\ExtractedExamples\Examples
+cd %GIT_HOME%\ExtractedExamples\Examples
