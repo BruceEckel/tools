@@ -5,7 +5,6 @@ import click
 import subprocess
 import platform
 
-
 if 'GIT_HOME' not in os.environ:
     print("You need to set 'GIT_HOME' as an environment variable")
     sys.exit(1)
@@ -14,7 +13,8 @@ if 'GIT_HOME' not in os.environ:
 def git_command(cmd):
     for gd in [x for x in Path(os.environ['GIT_HOME']).iterdir() if x.is_dir()]:
         os.chdir(gd)
-        print(".", end="", flush=True)
+        print(f"{Path.cwd().name}")
+        # print(".", end="", flush=True)
         result = subprocess.check_output("git " + cmd, shell=True).decode('ascii')
         if "Already up-to-date" in result:
             continue
