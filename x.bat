@@ -1,8 +1,8 @@
 @echo off
 pushd .
 cd %GIT_HOME%\AtomicKotlinExtractedExamples
-call gradlew clean
+call gradle clean
 call bb code extract
-call gradlew build
+call gradle build
 cd Examples
 popd
