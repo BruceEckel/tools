@@ -10,10 +10,11 @@ if 'GIT_HOME' not in os.environ:
     sys.exit(1)
 
 
-def git_command(cmd):
+def git_command(cmd, trace=False):
     for gd in [x for x in Path(os.environ['GIT_HOME']).iterdir() if x.is_dir()]:
         os.chdir(gd)
-        print(f"{Path.cwd().name}")
+        if trace:
+            print(f"{Path.cwd().name}")
         # print(".", end="", flush=True)
         result = subprocess.check_output("git " + cmd, shell=True).decode('ascii')
         if "Already up-to-date" in result:
@@ -39,6 +40,10 @@ def pull():
 def status():
     "Get status of all repos"
     git_command("status -s")
+    print()
+    print("".center(25, "="))
+    print("  Un-Pushed  ".center(25, '='))
+    print("".center(25, "="))
     git_command("log origin/master..HEAD")
 
 
