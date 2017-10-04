@@ -39,6 +39,7 @@ def pull():
 def status():
     "Get status of all repos"
     git_command("status -s")
+    git_command("log origin/master..HEAD")
 
 
 repo_file = Path(__file__).parent / (platform.node() + "_repos.txt")
