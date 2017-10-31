@@ -15,7 +15,7 @@ def git_command(cmd, trace=False):
         os.chdir(gd)
         if trace:
             print(f"{Path.cwd().name}")
-        # print(".", end="", flush=True)
+        print(".", end="", flush=True)
         result = subprocess.check_output("git " + cmd, shell=True).decode('ascii')
         if "Already up-to-date" in result:
             continue
