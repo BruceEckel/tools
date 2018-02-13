@@ -1,3 +1,3 @@
 @echo off
-cd %GIT_HOME%\AtomicKotlin
+cd %BOOK_PROJECT_HOME%
 call %GIT_HOME%\BookBuilder\virtualenv\Scripts\activate.bat
