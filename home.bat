@@ -1,3 +1,3 @@
 @echo off
 pushd .
-cd %GIT_HOME%\AtomicKotlin
+cd %BOOK_PROJECT_HOME%
