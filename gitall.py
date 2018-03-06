@@ -5,13 +5,19 @@ import click
 import subprocess
 import platform
 
+skip = ["AtomicKotlin", "AtomicKotlin-Edu"]
+
+
 if 'GIT_HOME' not in os.environ:
     print("You need to set 'GIT_HOME' as an environment variable")
     sys.exit(1)
 
 
-def git_command(cmd, trace=False):
+def git_command(cmd, trace=False, skip=[]):
     for gd in [x for x in Path(os.environ['GIT_HOME']).iterdir() if x.is_dir()]:
+        if gd.name in skip:
+            print(f"Skipping {gd.name}")
+            continue
         os.chdir(gd)
         if trace:
             print(f"{Path.cwd().name}")
@@ -33,7 +39,7 @@ def cli():
 @cli.command()
 def pull():
     "Pull on all repos"
-    git_command("pull")
+    git_command("pull", skip=skip)
 
 
 @cli.command()
