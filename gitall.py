@@ -14,7 +14,7 @@ if 'GIT_HOME' not in os.environ:
 
 
 def git_command(cmd, trace=False, skip=[]):
-    for gd in sorted([x for x in Path(os.environ['GIT_HOME']).iterdir() if x.is_dir() and not x.name.startswith('.')]):
+    for gd in [x for x in Path(os.environ['GIT_HOME']).iterdir() if x.is_dir() and not x.name.startswith('.')]:
         if gd.name in skip:
             print(f"Skipping {gd.name}")
             continue
