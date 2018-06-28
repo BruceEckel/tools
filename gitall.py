@@ -5,8 +5,8 @@ import click
 import subprocess
 import platform
 
-skip = ["AtomicKotlin", "AtomicKotlin-Edu"]
-
+skip = ["AtomicKotlin", "AtomicKotlin-Edu", "OnJava8-Examples-master", "PracticeJava", "IntuitiveJava.github.io",
+        ".idea", ".git"]
 
 if 'GIT_HOME' not in os.environ:
     print("You need to set 'GIT_HOME' as an environment variable")
@@ -45,15 +45,16 @@ def pull():
 @cli.command()
 def status():
     "Get status of all repos"
-    git_command("status -s")
+    git_command("status -s", skip=skip)
     print()
     print("".center(25, "="))
     print("  Un-Pushed  ".center(25, '='))
     print("".center(25, "="))
-    git_command("log origin/master..HEAD")
+    git_command("log origin/master..HEAD", skip=skip)
 
 
 repo_file = Path(__file__).parent / (platform.node() + "_repos.txt")
+
 
 def create_repo_file():
     "Produce urls of all repos on this machine"
