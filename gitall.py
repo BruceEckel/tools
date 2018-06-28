@@ -5,7 +5,7 @@ import click
 import subprocess
 import platform
 
-skip = ["AtomicKotlin", "AtomicKotlin-Edu", "OnJava8-Examples-master", "PracticeJava", "IntuitiveJava.github.io",
+skip = ["AtomicKotlin", "AtomicKotlin-Edu", "OnJava8-Examples-master", "IntuitiveJava.github.io",
         ".idea", ".git"]
 
 if 'GIT_HOME' not in os.environ:
