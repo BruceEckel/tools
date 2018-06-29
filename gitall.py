@@ -92,6 +92,24 @@ def merge_upstream_master():
             print(f"\n{'-'*10} [{gd.name}] {'-'*10}\n{result}")
 
 
+@cli.command()
+def configure_remote_with_fork():
+    """Points individual forked repo to upstream"""
+    upstream_repo = input(
+        "Paste the original repositories link (https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git) that you "
+        "want to sync with here: ")
+    if upstream_repo[len(upstream_repo) - 4:] == ".git":
+        try:
+            result = subprocess.check_output("git remote add upstream " + upstream_repo, shell=True).decode('ascii')
+            if result:
+                print(f"\n{'-'*10} {'-'*10}\n{result}")
+            result = subprocess.check_output("git remote -v", shell=True).decode('ascii')
+            if result:
+                print(f"\n{'-'*10} Origin/Upstream structure: {'-'*10}\n{result}")
+        except subprocess.CalledProcessError:
+            result = subprocess.check_output("git remote -v", shell=True).decode('ascii')
+            if result:
+                print(f"\n{'-'*10} Upstream already exists here: {'-'*10}\n{result}")
 
 
 repo_file = Path(__file__).parent / (platform.node() + "_repos.txt")
