@@ -81,6 +81,17 @@ def fetch_upstream():
             print(f"\n{'-'*10} [{gd.name}] {'-'*10}\n{result}")
 
 
+@cli.command()
+def merge_upstream_master():
+    """Merges fetched repos with local forks"""
+    forked_repos = find_forked_repos()
+    for gd in forked_repos:
+        os.chdir(gd)
+        result = subprocess.check_output("git merge upstream/master", shell=True).decode('ascii')
+        if result:
+            print(f"\n{'-'*10} [{gd.name}] {'-'*10}\n{result}")
+
+
 
 
 repo_file = Path(__file__).parent / (platform.node() + "_repos.txt")
