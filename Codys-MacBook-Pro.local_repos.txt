@@ -1,9 +1,0 @@
-https://codybontecou@bitbucket.org/BruceEckel/intuitivejava.git
-https://codybontecou@bitbucket.org/codybontecou/intuitivejavaexamples.git
-https://github.com/AtomicKotlin/AtomicKotlin-hugo.git
-https://github.com/BruceEckel/AtomicKotlinExamples.git
-https://github.com/BruceEckel/BookBuilder.git
-https://github.com/BruceEckel/tools.git
-https://github.com/CodyBontecou/IntuitiveJava.github.io.git
-https://github.com/CodyBontecou/IntuitiveJava.github.io.git
-https://github.com/JetBrains/AtomicKotlin.git
