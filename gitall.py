@@ -60,6 +60,26 @@ def status():
     git_command("log origin/master..HEAD")
 
 
+def find_forked_repos():
+    repos = []
+    for gd in git_home_iterator():
+        config = gd / ".git" / "config"
+        for line in [ln.strip() for ln in config.read_text().splitlines()]:
+            if 'remote "upstream"' in line:
+                repos.append(gd)
+    return repos
+
+
+@cli.command()
+def fetch_upstream():
+    """Fetch all upstream repos"""
+    forked_repos = find_forked_repos()
+    for gd in forked_repos:
+        os.chdir(gd)
+        result = subprocess.check_output("git fetch upstream", shell=True).decode('ascii')
+        if result:
+            print(f"\n{'-'*10} [{gd.name}] {'-'*10}\n{result}")
+
 
 
 
