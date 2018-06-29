@@ -12,8 +12,16 @@ if 'GIT_HOME' not in os.environ:
     sys.exit(1)
 
 
+def git_home_iterator():
+    """
+    List comprehension that iterates through each directory within GIT_HOME.
+    Excludes hidden files.
+    """
+    return [x for x in Path(os.environ['GIT_HOME']).iterdir() if x.is_dir() and not x.name.startswith('.')]
+
+
 def git_command(cmd, trace=False, skip=[]):
-    for gd in [x for x in Path(os.environ['GIT_HOME']).iterdir() if x.is_dir() and not x.name.startswith('.')]:
+    for gd in git_home_iterator():
         if gd.name in skip:
             print(f"Skipping {gd.name}")
             continue
@@ -37,28 +45,31 @@ def cli():
 
 @cli.command()
 def pull():
-    "Pull on all repos"
+    """Pull on all repos"""
     git_command("pull", skip=skip)
 
 
 @cli.command()
 def status():
-    "Get status of all repos"
-    git_command("status -s", skip=skip)
+    """Get status of all repos"""
+    git_command("status -s")
     print()
     print("".center(25, "="))
     print("  Un-Pushed  ".center(25, '='))
     print("".center(25, "="))
-    git_command("log origin/master..HEAD", skip=skip)
+    git_command("log origin/master..HEAD")
+
+
+
 
 
 repo_file = Path(__file__).parent / (platform.node() + "_repos.txt")
 
 
 def create_repo_file():
-    "Produce urls of all repos on this machine"
+    """Produce urls of all repos on this machine"""
     urls = []
-    for gd in [x for x in Path(os.environ['GIT_HOME']).iterdir() if x.is_dir()]:
+    for gd in git_home_iterator():
         config = gd / ".git" / "config"
         result = "No url found"
         for line in [ln.strip() for ln in config.read_text().splitlines()]:
@@ -70,7 +81,7 @@ def create_repo_file():
 
 @cli.command()
 def repo_list():
-    "Store urls of all repos on this machine"
+    """Store urls of all repos on this machine"""
     create_repo_file()
     print(f"{repo_file}")
     os.system(f"cat {repo_file}")
@@ -78,7 +89,7 @@ def repo_list():
 
 @cli.command()
 def compare_repos():
-    "Show what's on other machines that aren't on this one"
+    """Show what's on other machines that aren't on this one"""
     if not repo_file.exists():
         create_repo_file()
     others = [f for f in Path(__file__).parent.glob("*_repos.txt") if f != repo_file]
