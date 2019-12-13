@@ -2,7 +2,7 @@
 PyCon Talk Proposal
 ===================
 
-:Title: Create Your Own Self-Managed Consulting Firm!
+:Title: Object-Oriented Design Primitives
 :Duration: 30 min
 :Level: Beginner
 :Categories: core
@@ -178,3 +178,11 @@ future) use an ``OrderedDict``.
 But, for most uses, the List and Dictionary are king, and the audience
 will now hopefully understand why they're each perfect for their common
 uses.  “Any questions?”
+
+
+Notes
+=====
+
+I can also do a 45 minute version of the presentation which includes an
+example of a  small game in which a robot explores a maze. This demonstrates
+the primitives described in the talk.
