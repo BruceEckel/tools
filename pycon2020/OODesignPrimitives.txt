@@ -1,188 +1,375 @@
-===================
-PyCon Talk Proposal
-===================
+=================== PyCon Talk Proposal ===================
 
 :Title: Object-Oriented Design Primitives
 :Duration: 30 min
-:Level: Beginner
-:Categories: core
-
-Summary
-=======
-
-Both newcomers and experienced developers alike love Python's built-in data types — especially dictionaries!  But how do dictionaries work? What do they do better than other container types, and where, on the other hand, are their weaknesses?  Using simple, vivid diagrams that show the secrets of how the dictionary is implemented, and a series of progressively interesting examples of its behavior, we will train the Python developer's mind to picture what the dictionary is doing in just enough detail to make good decisions, as your data sets get larger, about when to use dictionaries and when other data structures might be more appropriate.
+:Level: Intermediate
 
 Description
 ===========
 
-With some judicious use of ``ctypes``, one can write a Python routine
-that dissects a Python dictionary or set and displays its internals.
-Using such a tool — which I will also release on PyPI, to accompany the
-presentation slides — my presentation will show how dictionaries behave
-as you add items, overwrite them later, remove them, and iterate across
-the whole dictionary.
+The programming community has been immersed in objects for several decades, and it's taken us that long to understand that object-oriented design is more art than science. This presentation captures some guiding ideas in object design, and illustrates these ideas by creating a design for a "robot explorer" game.
 
-By contemplating these normally hidden mechanics, and by showing some
-judicious results from the ``timeit`` module, both newcomers and
-experienced developers can gain new insight into the trade-offs that
-dictionaries provide between space and computational complexity,
-compared to the other alternatives in Python.  They will also understand
-why Python provides a ``hash()`` function; why user-defined classes are
-given the freedom to define their own hash function as well; and, what
-happens if they choose not to.
+The essential property of software, unlike any other construction material, is that it's easy to change. Most issues in software design revolve around creating systems that are likewise easy to change. Indeed, the primary task of software architecture is *anticipating* change, and this requires an architect with enough experience to guess where changes might happen.
 
-The talk will actually discuss sets for most of its length, since they
-are simpler to diagram and understand, then show, at the end, how a
-dictionary is just a set with a second column, that holds a reference to
-an object stored at that key value.
+The *Design Patterns* movement arose to provide recipes for categories of design problems which kept occurring in systems with medium-to-high complexity.
 
-The talk will go something like this — each of the following 5 items,
-I'm imagining, will take up about five minutes (and probably five to ten
-slides) of my presentation, adding together to 25 minutes (leaving
-5 minutes left over for questions):
+The community also developed *Design Principles* to answer specific questions. For example, the *Open-Closed Principle* ("classes should be open for extension and closed for modification") and the *Single Responsibility Principle* ("a class should have one reason for existing").
 
-1. The Journey
---------------
+However, architecture, patterns and principles all answer questions *about* your design, but don't really tell you how to come up with the design in the first place. In this talk, I suggest some of what might be called *Object-Oriented Design Primitives*, which discover the structure of your system so you can decompose it into objects and functions---at which point architecture, principles and patterns start becoming useful.
 
-When I graduated, I wanted to program but also to have freedom.
-No one handed me that, and I decided (too soon, I'm sure) that it
-didn't exist.
+Who and Why
+===========
 
-Researching organizational structures
+This talk is designed for intermediate-level Python programmers who have had some experience with objects but are uncertain and curious about how best to design objects and the systems that use them. The example uses modern Python techniques including enumerations, classes, inheritance, type hints, and design patterns (*Factory* and *Builder*), but attempts to remain simple and understandable so the audience can focus on the design issues. The talk provides the audience with greater insights into the basic questions of object-oriented design so they have a vocabulary to produce better designs of their own.
 
-Try to give new graduates the experience I wanted.
+Outline
+=======
 
-Computer memory is indexed by integers, like Python lists (though the
-indexes tend to be much bigger!).  So a Python list is simple: it's an
-array of numbers, each indicating where in memory a Python object is
-stored, and Python can jump directly to list item *n*, but has to
-iterate across the whole list to find whether a particular item is in
-the list.
+After a brief overview, I will spend a minute or two on each point, then describe the design problem and walk through as much of the code as time permits. The code is available on Github so the attendees can find it there, and if there's interest I can do a post-talk open-spaces session for people who want more OO design discussions.
 
-An ordered list would let you find items more quickly, by jumping in
-halfway through, and then restricting your search to one half of the
-remaining list, just like looking for a name in a telephone book.  But,
-the cost would still grow as the list grew longer.  And, lists would be
-expensive to keep ordered!
+### 1. Begin with a Story
 
-So, let's think about another plan.  In a normal list, items wind up at
-all sorts of indexes.  What if we created a list, and magically knew
-ahead of time exactly where each Python object belonged?  Then we could
-jump right to a given item, immediately, every time!
+Describe your system in implementation-free terms. Discover the main actors and their essential motives and behaviors. Then look for the fundamental nouns and verbs in your story, which suggest objects and functions.
 
-2. Our Structure
+### 2. Fitness to Purpose
+
+It usually requires multiple attempts to discover your needs, and a design that meets those needs.
+
+-   Understand the problem you are attempting to solve, so you can discover the kinds of changes you will encounter.
+
+-   Identify essential vs. merely incidental forces in your design.
+
+### 3. Anticipate Change
+
+*Separate things that change from things that stay the same*.
+
+However, don't design for a particular change before you know for sure that you need it. Over-anticipation produces messy and confusing results.
+
+### 4. Tend Your Own Garden
+
+Each object should do one thing well, and should avoid interfering with the activities of other objects. Instead, it should ask other objects to help it achieve its mission. This helps maximize understandability, which improves maintainability.
+
+An object manages state. It contains data, and enforces a set of rules about the allowable values for that data. If you're not doing that, ask whether this needs to be an object.
+
+### 5. Reduce Coupling
+
+Two components are highly coupled if they are intertwined with each other---they are in each other's business. High coupling means:
+
+- Changing one component forces changes in coupled components.
+
+- Increased effort when assembling components.
+
+- Using a component is harder because dependent components must be included.
+
+Sometimes coupling is inevitable, but when you see highly-coupled objects, consider moving things around so the coupling occurs *inside* a single object, and so other activities take place in different objects.
+
+If several functions seem linked, especially through data, try combining them into an object to see if it produces a cleaner design.
+
+### 6. Use Indirection
+
+Whenever you have a task, see if you can get some other object to do it for you.
+
+Indirection provides design flexibility. Every indirection to an object is an opportunity to vary implementations through polymorphism.
+
+A corollary to this is the maxim *prefer composition to inheritance*.
+
+### 7. Use Small Pieces
+
+- Make objects and functions that do the smallest thing that makes sense.
+
+- These are easy to reason about independently from the rest of the system.
+
+- They are easy to test.
+
+- Don't create a class if a function will suffice.
+
+- But if it's too complicated, try adding more objects (This is counterintuitive, but surprisingly useful).
+
+### 8. Don't Repeat Yourself (DRY)
+
+Minimize duplication: See what's already there, and don't solve solved problems. For example, virtually all libraries have a standard "date" object, but programmers will sometimes reinvent it anyway.
+
+### 9. Test your own code
+
+Testing informs design. When you write tests, it forces you to change your design to accomodate testing, and that improves the component being tested.
+
+### 10. Encapsulate Change
+
+If changing one thing requires changes to other things, perhaps all those things belong together in a class.
+
+### 11. Occam's Razor
+
+Try the simplest approach first. If the simple approach works, it will be faster and cheaper to implement and (more importantly) to maintain.
+
+Occam's razor is often misrepresented in popular media as "the simplest approach is the correct one." Occam made no assertion about the correctness of one approach over another. The Razor is simply a time-saving guideline. If you try the more complicated approach first and it fails, you waste a lot more time than if you start with the simplest approach. You also learn more rapidly and cheaply with the simplest approach, and you can take those learnings and apply them to more complex approaches if you need to.
+
+The Robot's Journey
+-------------------
+
+We start with the basic story for the game, which we can use to create a preliminary design.
+
+Robot Explorer One, R1 for short, feels a sudden urge to explore the room on the West side. R1 enters the door to the West room and tries to enter, but immediately runs into a wall so the room is inaccessible. R1 can do nothing more until ...
+
+R1 feels an urge to explore the room on the South side. R1 enters the door to the South room and finds food on the floor, which R1 eats to produce energy for itself.
+
+R1 feels an urge to explore the room on the South side of this new room. R1 enters the door to the South room and finds itself suddenly teleported somewhere else. R1 stands in a daze until ...
+
+R1 feels an urge to explore the room on the East side. R1 enters the door to the East room and finds ... nothing.
+
+R1 feels an urge to explore the room on the North side. R1 enters the door to the North room and finds a floating exclamation point. The game ends and points are displayed.
+
+Analysis
+--------
+
+The main character is the Robot Explorer, who intiates the action for each turn when it gets an urge to explore another room located in a particular direction. The urge usually comes from the keyboard, but urges can also be generated by, for example, a test system.
+
+The setting for the action is a room which may contain a game element. If a game element is:
+
+- Nothing (no other elements in the room): Nothing happens
+- A wall: R1 cannot enter the room
+- A boundary (the edge of the maze): R1 cannot enter (there's no room to enter)
+- An empty room: R1 enters but nothing happens
+- Food: R1 eats it
+- A teleportation portal: R1 is moved to the remote portal of the same name
+- An exclamation point: The game ends and displays the points
+
+Each case ends the turn.
+
+Essential Design
 ----------------
 
-My goal with the site (and the organization) is to be as transparent as
-possible, so if a potential customer likes what they see, they don't get
-surprises if they engage us, and if they see something they don't like ("the
-programmers only work as long as they feel like it? That's ridiculous!") we
-never hear from them. Basically, expose all our organizational weirdness so
-people know exactly what they are getting, and we are not trying to sell
-services to someone who isn't a fit.
+The game revolves around the turn. R1 receives an urge which initiates a move. R1 enters a room and interacts with whatever is in that room, ending the turn. Here's one way we might depict the main components of the game, without getting lost in details that are unnecessary at this stage:
+
+```python
+from enum import Enum
+from typing import Dict, Tuple
 
 
-We would need a function, called a *hash function*, that when given a
-certain value — like the number 42, or the string ``"Ni"`` — always
-returns the same index.  Python provides this with a built-in called
-``hash()`` for which each built-in type provides an implementation.
-
-As an example, we will examine an empty ``set()`` — “look, it starts
-with space for eight items, even when it's empty!” — then we run
-``hash()`` on three simple Python values; then we insert them into the
-set, and see them land right at the indexes where ``hash()`` told them
-to.
-
-We now see the trade-off a hash table makes: in return for holding open
-several empty slots, and thus spending *memory*, it can find an item (or
-discover that it's absent) after only incurring the *static* cost of
-computing a hash.  With a few ``timeit`` tests, we determine how costly
-it is to compute a hash compared to two simple list operations: jumping
-directly to list item *n*, versus iterating across a small or large list
-to find an item.  Very small lists are very fast, but quickly become
-more expensive than computing the hash value to look in a set or
-dictionary.
-
-3. So Far
----------
-
-One happy customer, happy associates.
-
-The ``hash()`` function has to return a limited range of values for an
-unlimited range of inputs, so many objects *collide*.  I will create a
-collision in the set shown in the slides, and show how the hash table
-shunts aside the second item and puts it in a second spot that it can
-find it quickly again when we ask.  Removing the collision can still
-leave the other object stranded where it was put, so the cost of a
-collision can linger.
-
-When I add a fifth item to the set, it suddenly becomes 32 items long!
-This is to prevent collisions from piling up too deep; both the size of
-the hash table, *and* some of its behavior, are thus driven by the need
-to handle collisions.  I will note that, when a set or dictionary is
-re-sized, all of its contents are re-inserted, so that any junk left
-over gets periodically erased as long as the dictionary is occasionally
-growing or shrinking.
-
-I will show how the cost of re-allocating the whole hash table is
-reasonable if spread across many hundreds of set inserts, and also
-quickly show an animation of the dictionary growing, then shrinking as
-items are removed.  By showing some animations of how a dictionary
-"looks" as it grows and gets used, using some real-world data from
-observing a dictionary in one of my own applications, I will give a feel
-for how they behave in the wild.
-
-4. The Ultimate Goal
---------------------
-
-Create a successful working model that others can easily emulate. We've
-gone through the hard stuff so you don't have to.
-
-Even better: come up with an open-source financial model
-
-The critical idea of giving one of your own classes its own
-``__hash__()`` method is whether each member of your class represents a
-*value* that could later — or even simultaneously — be represented by a
-different instance of your class.  I will show how we can easily create
-two floats with different ``id()`` but the same value (such that they
-satisfy Python equality), and show how they both go into the same
-dictionary slot because they have the same hash value.
-
-With a few examples and simple illustrations, I will show how simply
-calling ``hash()`` on the instance variables that give your class
-instance its own unique value, and combining their values together, you
-can create a decent hash for your own class.
-
-What if your class has no hash routine?  I will show how objects are
-then tested for uniqueness, rather than value, and how deleting and
-re-creating the "same" object gives it a different hash-table slot.
-
-5. Create Your Own
-------------------
-
-First, I finally show the dictionary in all of its glory: like a set, it
-keeps items in a hash table; but it adds a second column that for each
-key provides a "value".
-
-I will then show an animation of iteration across a dictionary: why the
-objects come out in random order, and why it's dangerous to modify the
-dictionary during iteration.
-
-Finally, I will briefly discuss alternatives.  If you want items back
-out in order, rather than having random access, use a ``heapq``.  If you
-only add and remove objects from the ends of a series, use a ``deque``.
-If you need both key-value referencing *and* ordering, then (for today)
-you might just use ``sorted()`` on your keys each time, or (in the
-future) use an ``OrderedDict``.
-
-But, for most uses, the List and Dictionary are king, and the audience
-will now hopefully understand why they're each perfect for their common
-uses.  “Any questions?”
+class Urge(Enum):
+    North = 1
+    South = 2
+    East = 3
+    West = 4
 
 
-Notes
-=====
+class Robot:
+    def __init__(self, room):
+        self.room = room
 
-I can also do a 45 minute version of the presentation which includes an
-example of a  small game in which a robot explores a maze. This demonstrates
-the primitives described in the talk.
+    def move(self, urge: Urge):
+        # Get a reference to the Room you've been urged
+        # to go to, and see what happens when we enter
+        # that Room. Point robot to the returned Room:
+        self.room = self.room.doors.open(urge).enter(self)
+
+    def __str__(self) -> str:
+        return f"Robot {self.room.doors}"
+
+
+class Item:
+    symbol = ''
+
+    def interact(self, robot, room):
+        pass
+
+    def __str__(self) -> str:
+        return self.symbol
+
+
+class Mech(Item):
+    symbol = 'R'
+
+    def interact(self, robot: Robot, room):
+        return robot.room  # Stay in original room
+
+
+class Wall(Item):
+    symbol = '#'
+
+    def interact(self, robot: Robot, room):
+        return robot.room  # Stay in original room
+
+
+class Food(Item):
+    symbol = '.'
+
+    def interact(self, robot: Robot, room):
+        print("Eat food")
+        room.occupant = Empty()
+        return room  # Move to new room
+
+
+class Teleport(Item):
+    """Jump to the room with the same target"""
+
+    def __init__(self, target: str):
+        self.target = target
+
+    def interact(self, robot: Robot, room):
+        pass
+
+    def __str__(self) -> str:
+        return self.target
+
+
+class Empty(Item):
+    """Room is there, but nothing is in it"""
+    symbol = '_'
+
+    def interact(self, robot: Robot, room):
+        return room  # Move to new room
+
+
+class Edge(Item):
+    """The unknown void outside the maze"""
+    symbol = '/'
+
+    def interact(self, robot: Robot, room):
+        return robot.room  # Stay in original room
+
+
+class EndGame(Item):
+    """The game is over"""
+    symbol = '!'
+
+    def interact(self, robot: Robot, room):
+        return room
+
+
+def item_factory(symbol: str):
+    for item in Item.__subclasses__():
+        if symbol == item.symbol:
+            return item()
+    return Teleport(symbol)
+
+
+class Doors: pass
+
+
+class Room:
+    """Holds occupant, can be entered by Robot"""
+    def __init__(self, occupant: Item = Empty()):
+        self.occupant = occupant
+        self.doors = Doors()
+
+    def enter(self, robot: Robot):
+        return self.occupant.interact(robot, self)
+
+    def __repr__(self):
+        return f"Room({self.occupant}) {self.doors}"
+
+
+class Doors:
+    edge = Room(Edge())
+
+    def __init__(self):
+        self.north = Doors.edge
+        self.south = Doors.edge
+        self.east = Doors.edge
+        self.west = Doors.edge
+
+    def connect(self, row: int, col: int,
+                grid: Dict[Tuple[int, int], Room]):
+        def link(to_row: int, to_col: int):
+            return grid.get((to_row, to_col), Doors.edge)
+
+        self.north = link(row - 1, col)
+        self.south = link(row + 1, col)
+        self.east = link(row, col + 1)
+        self.west = link(row, col - 1)
+
+    def open(self, urge: Urge) -> Room:
+        # Pattern Match:
+        return {
+            Urge.North: self.north,
+            Urge.South: self.south,
+            Urge.East: self.east,
+            Urge.West: self.west
+        }.get(urge, Room(Edge()))
+
+    def __str__(self) -> str:
+        return f"[N({self.north.occupant}), " + \
+               f"S({self.south.occupant}), " + \
+               f"E({self.east.occupant}), " + \
+               f"W({self.west.occupant})]"
+
+
+class RoomBuilder:
+    def __init__(self, maze: str):
+        self.grid: Dict[Tuple[int, int], Room] = {}
+        self.robot = Robot(Room(Edge()))  # Nowhere
+        # Stage 1: Build the grid
+        for row, line in enumerate(maze.split("\n")):
+            for col, char in enumerate(line):
+                self.grid[(row, col)] = Room(item_factory(char))
+        # Stage 2: Connect the rooms
+        for (row, col), room in self.grid.items():
+            room.doors.connect(row, col, self.grid)
+        # Stage 3: Locate the robot
+        for room in self.grid.values():
+            if isinstance(room.occupant, Mech):
+                self.robot.room = room
+                return
+
+    def room(self, row: int, col: int) -> str:
+        return f"({row}, {col}) " + \
+               f"{self.grid.get((row, col), Room(Edge()))}"
+
+    def rooms(self) -> str:
+        return "\n".join(
+            [self.room(row, col)
+             for (row, col) in self.grid.keys()])
+
+    def __str__(self) -> str:
+        result = ""
+        current_row = 0
+        for (row, col), room in self.grid.items():
+            if row != current_row:
+                result += "\n"
+                current_row = row
+            result += f"{room.occupant}"
+        return result
+
+
+string_maze = """
+a_...#..._c
+R_...#...__
+###########
+a_......._b
+###########
+!_c_....._b
+""".strip()
+
+if __name__ == '__main__':
+    builder = RoomBuilder(string_maze)
+    print(builder.rooms())
+    print(builder)
+    print(builder.room(0, 0))
+    print(builder.room(1, 6))
+    print(builder.room(5, 0))
+    robot = builder.robot
+    print(robot)
+    robot.move(Urge.East)
+    robot.move(Urge.East)
+    robot.move(Urge.South)
+    print(robot)
+```
+
+This design is just enough to show proof-of-concept. Creating a skeletal version containing the essential structure of the system makes it much easier to ponder and understand how best to fit things together, before we get encumbered with low-level implementation details.
+
+Discovering Your Best Design
+----------------------------
+
+This solution is just one approach out of many possibilities. It has a particular orientation---that the robot should decide how it moves from room to room, and that a room manages the interactions between the robot and that room's occupants. This looks reasonable, but your design constraints might dictate a different orientation. For example, your goal might be to create a framework that will support many different kinds of games, in which case the above approach might need significant modification, or might not work at all. Another scenario is a simulation that allows any programmer to submit a robot with a customized strategy for moving through the maze of rooms---in that case, the "thing that changes" is the search strategy, and everything else about a robot while the simulation stays the same. Your needs dictate the choices made in the design.
+
+This lightweight implementation allows you to experiment with ideas and see if they work, without getting over-invested in a particular structure. Once there are too many implementation details, you often begin encountering resistance to change, making you cling to your original design even if you discover a better approach. However, if you don't write a lot of specific implementation code right away, you can rapidly experiment with multiple approaches and discover one that meets your needs better than the others.
+
+Additional Notes
+================
+
+The example code is available [here](https://github.com/BruceEckel/RobotExplorerPy).
+
+I've been speaking publicly for decades, including keynoting at Pycon (1997, I think) along with multiple other Pycon presentations (here's one from 2013: [Conference Abstract](https://us.pycon.org/2013/schedule/presentation/52/) [Video](https://www.youtube.com/watch?v=REOL1AV_PCg).
+
+This presentation began for a consulting client who requested deeper understanding of OO design---although the client's programmers were experienced, they still didn't feel comfortable making basic OO design decisions. It then evolved into a chapter in [Atomic Kotlin](https://www.atomickotlin.com/), at which point I thought it could be interesting to convert the example to Python and turn it into a presentation.
+
