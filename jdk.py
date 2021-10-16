@@ -3,7 +3,7 @@ import subprocess
 import sys, os
 from pathlib import Path
 
-jdk_dir = Path("c:/", "Program Files", "OpenJDK")
+jdk_dir = Path("c:/", "Program Files", "Java")
 
 java_jdks = list(jdk_dir.glob("*"))
 
