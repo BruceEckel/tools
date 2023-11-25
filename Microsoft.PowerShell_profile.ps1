@@ -15,18 +15,12 @@ function touch {
         New-Item -ItemType File -Path $Path | Out-Null
     }
 }
-function Set-TabTitle {
-    $path = (Get-Location).Path
-    $folder = Split-Path $path -Leaf
-    $host.UI.RawUI.WindowTitle = $folder
-}
 
-# Set the tab title on opening a new tab
-Set-TabTitle
+function prompt {
+    # Update the tab title with the current directory name
+    $folder = Split-Path -Path (Get-Location) -Leaf
+    $host.UI.RawUI.WindowTitle = if ($folder) { $folder } else { "PowerShell" }
 
-# Update the tab title every time the directory changes
-$Prompt = {
-    Set-TabTitle
-    # Original prompt functionality
+    # Return the default prompt
     "PS $($ExecutionContext.SessionState.Path.CurrentLocation)$('>' * ($nestedPromptLevel + 1)) "
 }
