@@ -1,3 +1,5 @@
+# Edit profile with:
+# > code $PROFILE
 New-Alias which get-command
 
 function touch {
