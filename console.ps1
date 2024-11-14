@@ -1,3 +1,5 @@
 # Shortcut command:
 # powershell.exe -ExecutionPolicy Bypass -F C:\git\tools\console.ps1
-wt --title Python --tabColor '#009999' -d C:\git\python-experiments\ `; new-tab --title Rust --tabColor '#f59218' -d C:\git\rust-experiments\ `; new-tab --title Go --tabColor '#f59218' -d C:\git\go-experiments\
+# --tabColor '#f59218' 
+# wt --title "lazy_guide code" --tabColor '#009999' -d C:\git\lazy_guide `; new-tab --title "Lazy Guide Chapters" --tabColor '#f59218' -d C:\git\LazyGuide\chapters\ `;
+wt --tabColor '#f59218' -d C:\git\LazyGuide\chapters `; new-tab --tabColor '#009999' -d C:\git\lazy_guide;

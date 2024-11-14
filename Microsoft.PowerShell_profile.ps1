@@ -1,6 +1,8 @@
+# C:\Users\bruce\OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+# Edit using `code $PROFILE`
+
 New-Alias which get-command
 
-# $newDirectory = "C:\Users\bruce\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\Scripts"
 $Env:PATH += ";" + "C:\Users\bruce\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\Scripts"
 
 
@@ -28,3 +30,62 @@ function prompt {
     # Return the default prompt
     "PS $($ExecutionContext.SessionState.Path.CurrentLocation)$('>' * ($nestedPromptLevel + 1)) "
 }
+
+function a {
+    # Get the current directory path
+    $currentPath = (Get-Location).Path
+
+    # Call the Enable-LazyGuideVenv function with the current directory
+    Enable-LazyGuideVenv -PathToCheck $currentPath
+}
+
+
+function d {
+    deactivate
+}
+
+# Function to activate the virtual environment if in the desired directory
+function Enable-LazyGuideVenv {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$PathToCheck
+    )
+
+    # Check if we're in the desired directory or a subdirectory
+    if ($PathToCheck -like 'C:\git\lazy_guide*') {
+        # Activate the virtual environment if it's not already activated
+        if (-not (Test-Path env:VIRTUAL_ENV)) {
+            # Dynamically construct the full path to the activation script
+            $venvActivatePath = Join-Path -Path (Resolve-Path 'C:\git\lazy_guide') -ChildPath '.venv\Scripts\Activate.ps1'
+
+            # Check if the activation script exists before sourcing it
+            if (Test-Path -Path $venvActivatePath) {
+                . $venvActivatePath
+            }
+            else {
+                Write-Output "Virtual environment activation script not found at $venvActivatePath"
+            }
+        }
+    }
+}
+
+
+
+# Override Set-Location to activate virtual environment when navigating
+function Set-Location {
+    param (
+        [Parameter(Mandatory = $true, Position = 0)]
+        [string]$Path
+    )
+
+    # Call the original Set-Location to change the directory
+    Microsoft.PowerShell.Management\Set-Location -Path $Path
+
+    # Call the activation function after setting the new location
+    $currentPath = Get-Location
+    Enable-LazyGuideVenv -PathToCheck $currentPath.Path
+}
+
+# Check and activate the virtual environment at startup if we start in the desired directory
+$currentPath = Get-Location
+Enable-LazyGuideVenv -PathToCheck $currentPath.Path
