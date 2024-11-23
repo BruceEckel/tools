@@ -47,10 +47,9 @@ function a {
 
         if (Test-Path -Path $venvPath -PathType Container) {
             # If the .venv directory is found, activate the environment
-            $activateScript = Join-Path -Path $venvPath -ChildPath 'Scripts\\Activate.ps1'
+            $activateScript = Join-Path -Path $venvPath -ChildPath 'Scripts\Activate.ps1'
             if (Test-Path -Path $activateScript) {
                 Write-Output "Activating virtual environment from: $venvPath"
-                # Invoke the activation script in the current scope
                 & $activateScript
                 return
             }
