@@ -1,5 +1,8 @@
-# C:\Users\bruce\OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+# Change C:\Users\bruce\OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+# To contain:
+# . "C:\git\tools\Microsoft.PowerShell_profile.ps1"
 # Edit using `code $PROFILE`
+
 
 New-Alias which get-command
 
@@ -32,8 +35,44 @@ function prompt {
 }
 
 function a {
-    .\.venv\Scripts\activate
+    # Initialize the directory to start searching from
+    $currentDir = Get-Location
+
+    while ($null -ne $currentDir) {
+        # Create a DirectoryInfo object for the current directory
+        $currentDirInfo = [System.IO.DirectoryInfo]::new($currentDir)
+
+        # Construct the path to .venv in the current directory
+        $venvPath = Join-Path -Path $currentDirInfo.FullName -ChildPath '.venv'
+
+        if (Test-Path -Path $venvPath -PathType Container) {
+            # If the .venv directory is found, activate the environment
+            $activateScript = Join-Path -Path $venvPath -ChildPath 'Scripts\\Activate.ps1'
+            if (Test-Path -Path $activateScript) {
+                Write-Output "Activating virtual environment from: $venvPath"
+                # Invoke the activation script in the current scope
+                & $activateScript
+                return
+            }
+            else {
+                Write-Output "Activation script not found in .venv directory at $venvPath."
+                return
+            }
+        }
+
+        # Move up to the parent directory, but stop if there is no parent
+        if ($null -eq $currentDirInfo.Parent) {
+            break
+        }
+
+        $currentDir = $currentDirInfo.Parent
+    }
+
+    # If no .venv directory is found
+    Write-Output "No .venv directory found in the current directory or any parent directories."
 }
+
+
 
 
 function d {
