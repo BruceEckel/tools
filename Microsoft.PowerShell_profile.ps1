@@ -32,11 +32,7 @@ function prompt {
 }
 
 function a {
-    # Get the current directory path
-    $currentPath = (Get-Location).Path
-
-    # Call the Enable-LazyGuideVenv function with the current directory
-    Enable-LazyGuideVenv -PathToCheck $currentPath
+    .\.venv\Scripts\activate
 }
 
 
