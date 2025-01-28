@@ -47,7 +47,17 @@
     ],
     "profiles": 
     {
-        "defaults": {},
+        "defaults": 
+        {
+            "adjustIndistinguishableColors": "always",
+            "font": 
+            {
+                "cellHeight": "1.3",
+                "face": "Consolas",
+                "size": 13,
+                "weight": "semi-light"
+            }
+        },
         "list": 
         [
             {
