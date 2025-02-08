@@ -71,7 +71,7 @@
                 "hidden": false,
                 "name": "PowerShell",
                 "source": "Windows.Terminal.PowershellCore",
-                "startingDirectory": "C:\\git\\lazy_guide"
+                "startingDirectory": "C:\\git\\effect-oriented-programming"
             },
             {
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
