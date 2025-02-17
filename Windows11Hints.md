@@ -91,9 +91,9 @@
 - **[Alt]⇐** or Backspace Go back one page (also works in some apps like web browsers)
 - **[Alt]⇒** Go forward one page (also works in apps like web browsers)
 - **[Alt]⇑** View parent folder of current active folder
-- **[Ctrl](arrow)** Navigate items in current page without selecting them
+- **[Ctrl][Arrow]** Navigate items in current page without selecting them
 - **[Ctrl][Space]** Select individual items while navigating
-- **[Shift](arrow)** Select consecutive items starting from currently selected one
+- **[Shift][Arrow]** Select consecutive items starting from currently selected one
 - **⇒** (on navigation sidebar) Expand a collapsed folder or switch to first subfolder of expanded folder
 - **⇐** Collapse expanded folder or select parent folder of currently selected one
 - **F11** Maximize or minimize active window (also works in web browsers)
@@ -107,7 +107,7 @@
 - **[Ctrl][Shift][Tab]** Switch backwards through [Tab]s
 - **[Tab]** Move through options on current page
 - **[Shift][Tab]** Move backward through options on current page
-- **[Alt](letter)** Select option with corresponding underlined letter in its description
+- **[Alt][Letter]** Select option with corresponding underlined letter in its description
 
 ## Taskbar
 
@@ -135,17 +135,17 @@
 - **[Ctrl]Z** Undo last action
 - **[Ctrl]Y** Redo undone action
 - **F2** Rename selected file or folder
-- **F5** or [Ctrl]R - **Refresh** active window or page (works in various apps, including web browsers)
+- **F5** or **[Ctrl]R** Refresh active window or page (works in various apps, including web browsers)
 - **[Ctrl]F5** In some web browsers, this refreshes active window by forcing browser to reload files even if they've previously been cached
 - **F6** Cycle through screen elements of active window or desktop
 - **F10** Activate menu bar in active window or app
 - **[Alt]F8** Show password on windows sign-in screen
-- **[Alt](underlined** letter) When menus are being displayed, select option with corresponding underlined letter in text
 - **[Alt][Space]** Open shortcut menu for active window
 - **[Shift]F10** Open shortcut/context menu for selected item
 - **Menus**
   - **⇐** Move left on menu, or close open sub-menu
   - **⇒** Move right on menu, or open a selected sub-menu
+  - **[Alt][letter]** Select option with corresponding underlined letter
 - **[Ctrl]F4** Close open document or [Tab] in apps that allow you to open multiple documents or [Tab]s at once, such as web browsers
 - **[Ctrl]E** Open search (in some apps)
 - **[Ctrl]⇒** Move text cursor to beginning of next word
