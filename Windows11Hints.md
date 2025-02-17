@@ -46,12 +46,12 @@
 - **⊞[/]** Begin IME reconversion
 - **⊞[Ctrl][Shift]B** Wake up PC from a blank or black screen
 - **⊞[PrtScn]** Take full-screen screenshot and automatically save it to a file
-- **⊞[Alt][PrtScn]** Take a screenshot of active game or windowd save it into a file
-- **[PrtScn]** Take a full-screen screenshot and copy it to clipboard, to can paste it somewhere else without saving it as a file
+- **⊞[Alt][PrtScn]** Take a screenshot of active window and save it into a file
+- **[PrtScn]** Take a full screenshot and copy it to clipboard, to paste it somewhere else without saving it as a file
 - **[Ctrl][Esc]** Open Start menu
 - **[Ctrl][Shift][Esc]** Open Task Manager
 
-## MultitaskingWindow Management
+## Multitasking Window Management
 
 - **⊞[Tab]** Open Task View
 - **[Alt][Tab]** Switch to last active window
@@ -80,12 +80,12 @@
 - **[Ctrl]W** Close active [Tab]
 - **[Ctrl][Tab]** Switch to next [Tab] in [Tab] row
 - **[Ctrl][Shift][Tab]** Switch to previous [Tab] in [Tab] row
-- **[Ctrl][mouse** scroll] Change size of folderd file icons
+- **[Ctrl][mouse scroll]** Change size of folderd file icons
 - **[Ctrl][Shift]N** Create a new folder
 - **[Ctrl][Shift]E** Displays all folders in parent directory of current active folder (by expanding list on sidebar) if current folder has no sub-folders
-- **[NumLck][]** (plus) Display contents of a selected folder in sidebar
-- **[NumLck][*]** (asterisk) Display all subfolders in current selected folderd its subfolders on sidebar
-- **[NumLck][-]** (minus) Collapse expanded folder
+- **[NumLck][+]** Display contents of a selected folder in sidebar
+- **[NumLck][*]** Display all subfolders in current selected folderd its subfolders on sidebar
+- **[NumLck][-]** Collapse expanded folder
 - **[Alt]Enter** View properties of selected file or folder
 - **[Alt]P** Show preview panel
 - **[Alt]⇐** or Backspace Go back one page (also works in some apps like web browsers)
@@ -96,18 +96,18 @@
 - **[Shift](arrow)** Select consecutive items starting from currently selected one
 - **⇒** (on navigation sidebar) Expand a collapsed folder or switch to first subfolder of expanded folder
 - **⇐** Collapse expanded folder or select parent folder of currently selected one
-- **F11** - **Maximize** or minimize active window (also works in web browsers)
+- **F11** Maximize or minimize active window (also works in web browsers)
 
 ## Dialog Boxes
 
-- **F4** or [Space] Display items in active list
+- **F4** or **[Space]** Display items in active list
 - **[Arrow]** Select a button in a group of buttons or option in a list
 - **[Space]** Select or deselect active checkbox or button
 - **[Ctrl][Tab]** Switch through different [Tab]s (also works in web browsers)
 - **[Ctrl][Shift][Tab]** Switch backwards through [Tab]s
 - **[Tab]** Move through options on current page
 - **[Shift][Tab]** Move backward through options on current page
-- **[Alt](letter)** Select option with corresponding underlined letter in its d[Esc]ription
+- **[Alt](letter)** Select option with corresponding underlined letter in its description
 
 ## Taskbar
 
