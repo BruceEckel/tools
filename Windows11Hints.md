@@ -178,5 +178,5 @@
 - <kbd>→</kbd> next word
 - <kbd>↑</kbd> previous paragraph
 - <kbd>↓</kbd> next paragraph
-- <br><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>Home</kbd> Select from cursor to doc start
-- <br><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>End</kbd> Select from cursor to doc end
+- <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>Home</kbd> Select from cursor to doc start
+- <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>End</kbd> Select from cursor to doc end
