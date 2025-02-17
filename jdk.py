@@ -1,6 +1,6 @@
-import pprint
+import os
 import subprocess
-import sys, os
+import sys
 from pathlib import Path
 
 jdk_dir = Path("c:/", "Program Files", "Java")
@@ -19,7 +19,7 @@ def first_digits(number):
 
 
 def get_number(jdkname):
-    result = ''
+    result = ""
     parts = jdkname.split("-")
     for p in parts:
         result += first_digits(p)
@@ -44,14 +44,14 @@ def set_jdk(number):
     exists(jdk_path, jdk_bin)
     print(jdk_path)
     print(jdk_bin)
-    subprocess.call(['setx.exe', 'JAVA_HOME', f"{jdk_path}"])
-    subprocess.call(['setx.exe', 'PATH', f"{jdk_bin}"])
+    subprocess.call(["setx.exe", "JAVA_HOME", f"{jdk_path}"])
+    subprocess.call(["setx.exe", "PATH", f"{jdk_bin}"])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     if len(sys.argv) < 2:
         print(option_msg)
-        java_home = Path(os.environ['JAVA_HOME'])
+        java_home = Path(os.environ["JAVA_HOME"])
         print(f"Current JDK: {find_jdk[java_home]}")
     else:
         desired = sys.argv[1]
