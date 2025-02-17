@@ -1,171 +1,171 @@
 # Windows 11 Notes & Shortcuts
 
-- ⊞+A: Open Quick Settings panel
-- ⊞+C: Open Copilot (in supported regions)
-- ⊞+D: Show or hide desktop
-- ⊞+E: Open File Explorer
-- ⊞+F: Open Feedback Hubd immediately take a screenshot
-- ⊞+G: Open Xbox Game Bar
-- ⊞+[Alt] + B: Turn HDR on or off
-- ⊞+[Alt] + R: Start recording a video of app or game using Xbox Game Bar
-- ⊞+H: Launch voice typing
-- ⊞+I: Open Settings app
-- ⊞+[Pause]: Open About page in Settings
-- ⊞+K: Open Cast panel
-- ⊞+[Alt] + K - Mute microphone in apps that support Call Mute (includes Teams for workd school, Unigram,d others)
-- ⊞+L: Lock PC
-- ⊞+M: Minimize all windows
-- ⊞+[Shift] + M: Restore minimized windows
-- ⊞+N: Show notification centerd cal[End]ar
-- ⊞+O: Lock device orientation
-- ⊞+P: Change display mode for multiple monitors
-- ⊞+[Ctrl] + Q: Open Quick Assist
-- ⊞+R: Open Run dialog
-- ⊞+S: Open windows Search
-- ⊞+[Shift] + S: Take a screenshot using Snipping Tool
-- ⊞+U: Open Accessibility Settings page
-- ⊞+[Ctrl] + C: Turn color filters on or off
-- ⊞+V: Open clipboard history
-- ⊞+[Shift]+V: Set focus to a notification on screen
-- ⊞+W: Open Widgets panel
-- ⊞+X: Open Quick Link menu (equivalent to right-clicking Start icon on taskbar)
-- ⊞+Y: Switch input between windows Mixed Realityd desktop
-- ⊞+Z: Open snap layouts panel
-- ⊞ + . (period) or ; (semi-colon): Open emoji panel
-- ⊞ + , (comma): Peek at desktop
-- ⊞ key+ [Ctrl] + F— Search for PCs on domain network. This is meant for Azure Active Directory domains
-- ⊞+[Space]: Cycle between languagesd input methods (if multiple are installed)
-- ⊞+[Shift] + [Space]: Cycle backwards through list
-- ⊞+[Ctrl] + [Space]: Switch to last used input method
-- [Ctrl] + [Shift]: Switch to a different keyboard layout if multiple are available (for same language)
-- [Ctrl] + [Space]: Turn Chinese IME on or off (if Chinese language is installed)
-- ⊞+[Ctrl]+ Enter: Turn on Narrator
-- ⊞+[+] (plus): Turn on Magnifierd zoom into screen
-- ⊞+[-] (minus): Zoom out with Magnifier
-- ⊞+[Esc]: Close Magnifier
-- ⊞+/ (forward slash): Begin IME reconversion
-- ⊞+[Ctrl] + [Shift] + B: Wake up PC from a blank or black screen
-- ⊞+[PrtScn] (Print Screen, may be represented differently on different keyboards): Take a full-screen screenshotd automatically save it to a file
-- ⊞+[Alt]+ [PrtScn]: Take a screenshot of active game or windowd save it into a file
-- [PrtScn]: Take a full-screen screenshotd copy it to clipboard, so you can paste it somewhere else without saving it as a file
-- [Ctrl] + [Esc]: Open Start menu
-- [Ctrl] + [Shift] + [Esc]: Open Task Manager
+- ⊞A Open Quick Settings panel
+- ⊞C Open Copilot (in supported regions)
+- ⊞D Show or hide desktop
+- ⊞E Open File Explorer
+- ⊞F Open Feedback Hubd immediately take a screenshot
+- ⊞G Open Xbox Game Bar
+- ⊞[Alt]B Turn HDR on or off
+- ⊞[Alt]R Start recording a video of app or game using Xbox Game Bar
+- ⊞H Launch voice typing
+- ⊞I Open Settings app
+- ⊞[Pause] Open About page in Settings
+- ⊞K Open Cast panel
+- ⊞[Alt]K - Mute microphone in apps that support Call Mute (includes Teams for workd school, Unigram,d others)
+- ⊞L Lock PC
+- ⊞M Minimize all windows
+- ⊞[Shift]M Restore minimized windows
+- ⊞N Show notification centerd cal[End]ar
+- ⊞O Lock device orientation
+- ⊞P Change display mode for multiple monitors
+- ⊞[Ctrl]Q Open Quick Assist
+- ⊞R Open Run dialog
+- ⊞S Open windows Search
+- ⊞[Shift]S Take a screenshot using Snipping Tool
+- ⊞U Open Accessibility Settings page
+- ⊞[Ctrl]C Turn color filters on or off
+- ⊞V Open clipboard history
+- ⊞[Shift]V Set focus to a notification on screen
+- ⊞W Open Widgets panel
+- ⊞X Open Quick Link menu (equivalent to right-clicking Start icon on taskbar)
+- ⊞Y Switch input between windows Mixed Realityd desktop
+- ⊞Z Open snap layouts panel
+- ⊞[.] or [;] Open emoji panel
+- ⊞[,] Peek at desktop
+- ⊞[Ctrl]F Search for PCs on domain network. This is meant for Azure Active Directory domains
+- ⊞[Space] Cycle between languagesd input methods (if multiple are installed)
+- ⊞[Shift][Space] Cycle backwards through list
+- ⊞[Ctrl][Space] Switch to last used input method
+- [Ctrl][Shift] Switch to a different keyboard layout if multiple are available (for same language)
+- [Ctrl][Space] Turn Chinese IME on or off (if Chinese language is installed)
+- ⊞[Ctrl] Enter Turn on Narrator
+- ⊞[+] Turn on Magnifierd zoom into screen
+- ⊞[-] Zoom out with Magnifier
+- ⊞[Esc] Close Magnifier
+- ⊞[/] Begin IME reconversion
+- ⊞[Ctrl][Shift]B Wake up PC from a blank or black screen
+- ⊞[PrtScn] Take full-screen screenshot and automatically save it to a file
+- ⊞[Alt][PrtScn] Take a screenshot of active game or windowd save it into a file
+- [PrtScn] Take a full-screen screenshot and copy it to clipboard, to can paste it somewhere else without saving it as a file
+- [Ctrl][Esc] Open Start menu
+- [Ctrl][Shift][Esc] Open Task Manager
 
-## Multitasking + Window Management
+## MultitaskingWindow Management
 
-- ⊞+[Tab]: Open Task View
-- [Alt] + [Tab]: Switch to last active window
-- [Alt] + [Esc]: Cycle through windows in order in which they were opened
-- [Ctrl] + [Alt] + [Tab]: View all open apps so you can choose one with keyboard arrows
-- [Alt] + F4: Close active window or app
-- ⊞+⇑: Maximize active window so it takes up entire desktop
-- ⊞+[Alt] + ⇑: Snap active window to top half of monitor
-- ⊞+⇓: Set active window to a smaller size if it's maximized
-- ⊞+[Alt] + ⇓: Snap active window to bottom half of screen
-- ⊞+⇐: Snap active window to left half of screen
-- ⊞+⇒: Snap active window to right half of screen
-- ⊞+[Home]: Minimize all windows except active window
-- ⊞+[Shift] + ⇑: Stretch active window to take up entire vertical space, keeping same width (for non-maximized windows)
-- ⊞+[Shift] + ⇒ or ⇐: Move active window to a different monitor
-- ⊞+[Ctrl] + D: Create a new virtual desktop
-- ⊞+[Ctrl] + ⇐ or ⇒: Switch between virtual desktops to left or right
-- ⊞+[Ctrl] + F4: Close current virtual desktop
+- ⊞[Tab] Open Task View
+- [Alt][Tab] Switch to last active window
+- [Alt][Esc] Cycle through windows in order in which they were opened
+- [Ctrl][Alt][Tab] View all open apps to choose one with keyboard arrows
+- [Alt]F4 Close active window or app
+- ⊞⇑ Maximize active window so it takes up entire desktop
+- ⊞[Alt]⇑ Snap active window to top half of monitor
+- ⊞⇓ Set active window to a smaller size if it's maximized
+- ⊞[Alt]⇓ Snap active window to bottom half of screen
+- ⊞⇐ Snap active window to left half of screen
+- ⊞⇒ Snap active window to right half of screen
+- ⊞[Home] Minimize all windows except active window
+- ⊞[Shift]⇑ Stretch active window to take up entire vertical space, keeping same width (for non-maximized windows)
+- ⊞[Shift]⇒ or ⇐ Move active window to a different monitor
+- ⊞[Ctrl]D Create a new virtual desktop
+- ⊞[Ctrl]⇐ or ⇒ Switch between virtual desktops to left or right
+- ⊞[Ctrl]F4 Close current virtual desktop
 
 ## File Explorer
 
-- [Alt] + D or F4: Set focus to address bar
-- [Ctrl] + E or [Ctrl] + F or F3: Set focus to search bar
-- [Ctrl] + N: Open a new window (also works in some web browsers)
-- [Ctrl] + T - Open a new [Tab]. This feature also works on most web browsers
-- [Ctrl] + W: Close active [Tab]
-- [Ctrl] + [Tab]: Switch to next [Tab] in [Tab] row
-- [Ctrl] + [Shift] + [Tab]: Switch to previous [Tab] in [Tab] row
-- [Ctrl] + [mouse scroll]: Change size of folderd file icons
-- [Ctrl] + [Shift] + N: Create a new folder
-- [Ctrl] + [Shift] + E: Displays all folders in parent directory of current active folder (by expanding list on sidebar) if current folder has no sub-folders
-- [NumLck] + [+] (plus): Display contents of a selected folder in sidebar
-- [NumLck] + [*] (asterisk): Display all subfolders in current selected folderd its subfolders on sidebar
-- [NumLck] + [-] (minus): Collapse expanded folder
-- [Alt] + Enter: View properties of selected file or folder
-- [Alt] + P: Show preview panel
-- [Alt] + ⇐ or Backspace: Go back one page (also works in some apps like web browsers)
-- [Alt] + ⇒: Go forward one page (also works in apps like web browsers)
-- [Alt] + ⇑: View parent folder of current active folder
-- [Ctrl] + (arrow): Navigate items in current page without selecting them
-- [Ctrl] + [Space]: Select individual items while navigating
-- [Shift] + (arrow): Select consecutive items starting from currently selected one
-- ⇒ (on navigation sidebar): Expand a collapsed folder or switch to first subfolder of expanded folder
-- ⇐: Collapse expanded folder or select parent folder of currently selected one
+- [Alt]D or F4 Set focus to address bar
+- [Ctrl]E or [Ctrl]F or F3 Set focus to search bar
+- [Ctrl]N Open a new window (also works in some web browsers)
+- [Ctrl]T - Open a new [Tab]. This feature also works on most web browsers
+- [Ctrl]W Close active [Tab]
+- [Ctrl][Tab] Switch to next [Tab] in [Tab] row
+- [Ctrl][Shift][Tab] Switch to previous [Tab] in [Tab] row
+- [Ctrl][mouse scroll] Change size of folderd file icons
+- [Ctrl][Shift]N Create a new folder
+- [Ctrl][Shift]E Displays all folders in parent directory of current active folder (by expanding list on sidebar) if current folder has no sub-folders
+- [NumLck][] (plus) Display contents of a selected folder in sidebar
+- [NumLck][*] (asterisk) Display all subfolders in current selected folderd its subfolders on sidebar
+- [NumLck][-] (minus) Collapse expanded folder
+- [Alt]Enter View properties of selected file or folder
+- [Alt]P Show preview panel
+- [Alt]⇐ or Backspace Go back one page (also works in some apps like web browsers)
+- [Alt]⇒ Go forward one page (also works in apps like web browsers)
+- [Alt]⇑ View parent folder of current active folder
+- [Ctrl](arrow) Navigate items in current page without selecting them
+- [Ctrl][Space] Select individual items while navigating
+- [Shift](arrow) Select consecutive items starting from currently selected one
+- ⇒ (on navigation sidebar) Expand a collapsed folder or switch to first subfolder of expanded folder
+- ⇐ Collapse expanded folder or select parent folder of currently selected one
 - F11 - Maximize or minimize active window (also works in web browsers)
 
 ## Dialog Boxes
 
-- F4 or [Space]: Display items in active list
-- Arrow keys: Select a button in a group of buttons or option in a list
-- [Space]: Select or deselect active checkbox or button
-- [Ctrl] + [Tab]: Switch through different [Tab]s (also works in web browsers)
-- [Ctrl] + [Shift] + [Tab]: Switch backwards through [Tab]s
-- [Tab]: Move through options on current page
-- [Shift] + [Tab]: Move backward through options on current page
-- [Alt] + (letter): Select option with corresponding underlined letter in its d[Esc]ription
+- F4 or [Space] Display items in active list
+- [Arrow] Select a button in a group of buttons or option in a list
+- [Space] Select or deselect active checkbox or button
+- [Ctrl][Tab] Switch through different [Tab]s (also works in web browsers)
+- [Ctrl][Shift][Tab] Switch backwards through [Tab]s
+- [Tab] Move through options on current page
+- [Shift][Tab] Move backward through options on current page
+- [Alt](letter) Select option with corresponding underlined letter in its d[Esc]ription
 
 ## Taskbar
 
-- ⊞+T: Cycle through apps on taskbar (open or pinned)
-- ⊞+(number): Start app pinned to taskbar in position indicated by number
-- ⊞+[Shift] + (number): Start a new instance of app pinned to taskbar in position indicated by number, even if one is already open
-- ⊞+[Ctrl] + (number): Switch to last active window of app pinned to taskbar in position indicated by number
-- ⊞+[Alt] + (number): Open Jump List for app pinned to taskbar in position indicated by number
-- ⊞ + [Alt] + Enter (when focus is set to taskbar): Open taskbar settings
-- ⊞+[Ctrl] + [Shift] + (number): Open a new instance of app located at given position on taskbar as administrator
-- [Shift] + left mouse click: Open a new instance of selected app
-- [Ctrl] + [Shift] + left mouse click: Open selected app as administrator
-- [Shift] + right mouse click: Open window menu for selected app
-- [Ctrl] + left mouse click (on app with multiple windows open): Cycle through open windows for selected app
-- ⊞+B: Set focus to first icon in taskbar corner
+- ⊞T Cycle through apps on taskbar (open or pinned)
+- ⊞[Number] Start app pinned to taskbar in position indicated by number
+- ⊞[Shift][Number] Start a new instance of app pinned to taskbar in position indicated by number, even if one is already open
+- ⊞[Ctrl][Number] Switch to last active window of app pinned to taskbar in position indicated by number
+- ⊞[Alt][Number] Open Jump List for app pinned to taskbar in position indicated by number
+- ⊞[Alt]Enter (when focus is on taskbar) Open taskbar settings
+- ⊞[Ctrl][Shift][Number] Open a new instance of app located at given position on taskbar as administrator
+- [Shift]left mouse click Open a new instance of selected app
+- [Ctrl][Shift]left mouse click Open selected app as administrator
+- [Shift]right mouse click Open window menu for selected app
+- [Ctrl]left mouse click (on app with multiple windows open) Cycle through open windows for selected app
+- ⊞B Set focus to first icon in taskbar corner
 
 ## General
 
-- [Ctrl] + A: Select all text or items in a document, page, or window
-- [Ctrl] + D: Delete selected text or item(s)
-- [Ctrl] + X: Cut selected item or text
-- [Ctrl] + C: Copy selected item or text
-- [Ctrl] + V: Paste copied or cut content from clipboard
-- [Tab]: While editing text, create indent
-- [Ctrl] + Z: Undo last action
-- [Ctrl] + Y: Redo undone action
-- F2: Rename selected file or folder
-- F5 or [Ctrl] + R - Refresh active window or page (works in various apps, including web browsers)
-- [Ctrl] + F5: In some web browsers, this refreshes active window by forcing browser to reload files even if they've previously been cached
-- F6: Cycle through screen elements of active window or desktop
-- F10: Activate menu bar in active window or app
-- [Alt] + F8: Show password on windows sign-in screen
-- [Alt] + (underlined letter): When menus are being displayed, select option with corresponding underlined letter in text
-- [Alt] + [Space]: Open shortcut menu for active window
-- [Shift] + F10: Open shortcut/context menu for selected item
+- [Ctrl]A Select all text or items in a document, page, or window
+- [Ctrl]D Delete selected text or item(s)
+- [Ctrl]X Cut selected item or text
+- [Ctrl]C Copy selected item or text
+- [Ctrl]V Paste copied or cut content from clipboard
+- [Tab] While editing text, create indent
+- [Ctrl]Z Undo last action
+- [Ctrl]Y Redo undone action
+- F2 Rename selected file or folder
+- F5 or [Ctrl]R - Refresh active window or page (works in various apps, including web browsers)
+- [Ctrl]F5 In some web browsers, this refreshes active window by forcing browser to reload files even if they've previously been cached
+- F6 Cycle through screen elements of active window or desktop
+- F10 Activate menu bar in active window or app
+- [Alt]F8 Show password on windows sign-in screen
+- [Alt](underlined letter) When menus are being displayed, select option with corresponding underlined letter in text
+- [Alt][Space] Open shortcut menu for active window
+- [Shift]F10 Open shortcut/context menu for selected item
 - Menus
   - ⇐ Move left on menu, or close open sub-menu
   - ⇒ Move right on menu, or open a selected sub-menu
-- [Ctrl] + F4: Close open document or [Tab] in apps that allow you to open multiple documents or [Tab]s at once, such as web browsers
-- [Ctrl] + E: Open search (in some apps)
-- [Ctrl] + ⇒: Move text cursor to beginning of next word
-- [Ctrl] + ⇐: Move text cursor to beginning of previous word
-- [Ctrl] + ⇑: Move text cursor up one paragraph
-- [Ctrl] + ⇓: Move text cursor down one paragraph
-- [Home]: Move text cursor to beginning of current line
-- [Ctrl] + [Home]: Move text cursor to beginning of text
-- [End]: Move text cursor to [End] of current line
-- [Ctrl] + [End]: Move text cursor to [End] of current line
-- [Alt] + [Shift] + (arrow key): When focus is set to a pinned app in Start menu, move pinned app in direction of arrow
-- [Shift] + (arrow key): In a document, select text starting from position of text cursor
-  - ⇐: Select previous character
-  - ⇒: Select next character
-  - ⇑: Select previous line
-  - ⇓: Select next line
-- [Ctrl] + [Shift] + (arrow key): In a document, select a block of text starting from position of cursor:
-  - ⇐: Select previous word
-  - ⇒: Select next word
-  - ⇑: Select previous paragraph
-  - ⇓: Select next paragraph
-- [Ctrl] + [Shift] + [Home]: In a text, select all text between beginning of textd position of cursor
-- [Ctrl] + [Shift] + [End]: In a text, select all text between position of cursord [End] of text
+- [Ctrl]F4 Close open document or [Tab] in apps that allow you to open multiple documents or [Tab]s at once, such as web browsers
+- [Ctrl]E Open search (in some apps)
+- [Ctrl]⇒ Move text cursor to beginning of next word
+- [Ctrl]⇐ Move text cursor to beginning of previous word
+- [Ctrl]⇑ Move text cursor up one paragraph
+- [Ctrl]⇓ Move text cursor down one paragraph
+- [Home] Move text cursor to beginning of current line
+- [Ctrl][Home] Move text cursor to beginning of text
+- [End] Move text cursor to [End] of current line
+- [Ctrl][End] Move text cursor to [End] of current line
+- [Alt][Shift][Arrow] When focus is on a pinned app in Start menu, move pinned app in direction of arrow
+- [Shift][Arrow] In a document, select text starting from position of text cursor
+  - ⇐ Select previous character
+  - ⇒ Select next character
+  - ⇑ Select previous line
+  - ⇓ Select next line
+- [Ctrl][Shift][Arrow] In a document, select a block of text starting from position of cursor:
+  - ⇐ Select previous word
+  - ⇒ Select next word
+  - ⇑ Select previous paragraph
+  - ⇓ Select next paragraph
+- [Ctrl][Shift][Home] In a text, select all text between beginning of textd position of cursor
+- [Ctrl][Shift][End] In a text, select all text between position of cursord [End] of text
