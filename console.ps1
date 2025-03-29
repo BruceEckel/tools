@@ -27,7 +27,7 @@
 # 5 Click/tap on Save to apply.
 
 
-wt --tabColor '#CCCC00' -d C:\git\pybooktools\src\pybooktools `; new-tab --tabColor '#f59218' -d C:\git\LazyGuide\chapters `; new-tab --tabColor '#009999' -d C:\git\lazy_guide\src\types;
+wt --tabColor '#CCCC00' -d C:\git\pybooktools\src\pybooktools `; new-tab --tabColor '#f59218' -d C:\git\ThinkingInTypes.github.io `; new-tab --tabColor '#009999' -d C:\git\ThinkingInTypes_Examples;
 
 
 
