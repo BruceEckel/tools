@@ -9,6 +9,17 @@ New-Alias which get-command
 # $Env:PATH += ";" + "C:\Users\bruce\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\Scripts"
 
 
+function up {
+    pushd ..
+    Write-Host "Moved up to $(Get-Location)"
+}
+
+function down {
+    popd
+    Write-Host "Returned to $(Get-Location)"
+}
+
+
 function touch {
     param (
         [Parameter(Mandatory = $true)]
