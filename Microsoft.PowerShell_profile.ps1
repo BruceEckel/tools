@@ -9,6 +9,15 @@ New-Alias which get-command
 # $Env:PATH += ";" + "C:\Users\bruce\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\Scripts"
 
 
+# Ensure Git's grep.exe is available
+if (-not (Get-Command grep -ErrorAction SilentlyContinue)) {
+    $gitGrepPath = "C:\Program Files\Git\usr\bin"
+    if (Test-Path "$gitGrepPath\grep.exe") {
+        $env:PATH += ";$gitGrepPath"
+    }
+}
+
+
 function up {
     pushd ..
     Write-Host "Moved up to $(Get-Location)"
