@@ -4,7 +4,7 @@
 # Edit using `code $PROFILE`
 
 
-New-Alias which get-command
+Set-Alias which get-command -Force
 
 # $Env:PATH += ";" + "C:\Users\bruce\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\Scripts"
 
@@ -19,12 +19,12 @@ if (-not (Get-Command grep -ErrorAction SilentlyContinue)) {
 
 
 function up {
-    pushd ..
+    Push-Location ..
     Write-Host "Moved up to $(Get-Location)"
 }
 
 function down {
-    popd
+    Pop-Location
     Write-Host "Returned to $(Get-Location)"
 }
 
