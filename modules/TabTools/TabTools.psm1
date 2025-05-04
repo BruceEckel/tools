@@ -13,26 +13,37 @@ function Open-VenvTab {
         $pwshExe = "C:\Program Files\PowerShell\7\pwsh.exe"
         "Using pwshExe: $pwshExe" | Out-File $logPath -Append
 
+        # Resolve the absolute path and tab title
         $absPath = (Resolve-Path $Path).Path
         $tabTitle = Split-Path $absPath -Leaf
-        $venvActivate = Join-Path $absPath '.venv\Scripts\Activate.ps1'
-
         "absPath: $absPath" | Out-File $logPath -Append
         "tabTitle: $tabTitle" | Out-File $logPath -Append
+
+        # Search upward for .venv\Scripts\Activate.ps1
+        $venvActivate = $null
+        $searchDir = [System.IO.DirectoryInfo]$absPath
+        while ($searchDir -ne $null) {
+            $candidate = Join-Path $searchDir.FullName '.venv\Scripts\Activate.ps1'
+            if (Test-Path $candidate) {
+                $venvActivate = $candidate
+                break
+            }
+            $searchDir = $searchDir.Parent
+        }
         "venvActivate: $venvActivate" | Out-File $logPath -Append
 
+        # Prepare the script file that will run in the new tab
         $scriptFile = [System.IO.Path]::Combine(
             $env:TEMP,
             "OpenVenvTab_$($tabTitle.Replace(' ', '_')).ps1"
         )
-
         "scriptFile: $scriptFile" | Out-File $logPath -Append
 
         @"
 Set-Location "$absPath"
 
 if (Test-Path "$venvActivate") {
-    Write-Host "Activating virtual environment..."
+    Write-Host "Activating virtual environment from $venvActivate..."
     & "$venvActivate"
 } else {
     Write-Host "No virtual environment found."
@@ -42,6 +53,7 @@ if (Test-Path "$venvActivate") {
         "Script written. Contents:" | Out-File $logPath -Append
         Get-Content $scriptFile | Out-File $logPath -Append
 
+        # Launch a new Windows Terminal tab
         $wtArgs = @(
             'new-tab',
             '--title', $tabTitle,
@@ -49,12 +61,10 @@ if (Test-Path "$venvActivate") {
             '--',
             $pwshExe, '-NoExit', '-File', $scriptFile
         )
-
         "Final wt args:" | Out-File $logPath -Append
         $wtArgs | Out-File $logPath -Append
 
         & 'wt' @wtArgs
-
         "wt launched successfully." | Out-File $logPath -Append
     }
     catch {
@@ -63,7 +73,6 @@ if (Test-Path "$venvActivate") {
 
     Write-Host "Log written to $logPath"
 }
-
 
 function Open-VenvTabs {
     param (
@@ -74,9 +83,7 @@ function Open-VenvTabs {
     foreach ($tab in $Tabs) {
         $path = $tab.Path
         $color = $tab.Color
-        if (-not $color) {
-            $color = '#FFFFFF'
-        }
+        if (-not $color) { $color = '#FFFFFF' }
         Open-VenvTab -Path $path -Color $color
         Start-Sleep -Milliseconds 300  # brief delay to avoid race conditions
     }
