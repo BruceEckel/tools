@@ -63,3 +63,21 @@ if (Test-Path "$venvActivate") {
 
     Write-Host "Log written to $logPath"
 }
+
+
+function Open-VenvTabs {
+    param (
+        [Parameter(Mandatory)]
+        [array]$Tabs  # Each element should be a hashtable with Path and optional Color
+    )
+
+    foreach ($tab in $Tabs) {
+        $path = $tab.Path
+        $color = $tab.Color
+        if (-not $color) {
+            $color = '#FFFFFF'
+        }
+        Open-VenvTab -Path $path -Color $color
+        Start-Sleep -Milliseconds 300  # brief delay to avoid race conditions
+    }
+}
