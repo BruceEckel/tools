@@ -2,7 +2,8 @@
 # To contain:
 # . "C:\git\tools\Microsoft.PowerShell_profile.ps1"
 # Edit using `code $PROFILE`
-
+$env:PSModulePath += ";C:\git\tools\modules"
+Import-Module TabTools
 
 Set-Alias which get-command -Force
 
