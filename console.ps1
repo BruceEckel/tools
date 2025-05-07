@@ -1,5 +1,5 @@
 # Shortcut command: (Target)
-# powershell.exe -ExecutionPolicy Bypass -F C:\git\tools\console.ps1
+# pwsh -ExecutionPolicy Bypass -F C:\git\tools\console.ps1
 
 
 # Create a Shortcut:
@@ -27,10 +27,11 @@
 # 5 Click/tap on Save to apply.
 
 
+# Taskbar shortcut properties
+# target: "C:\Program Files (x86)\PowerShell\7\pwsh.exe" -File "C:\git\tools\console.ps1"
+
+
 # wt --tabColor '#CCCC00' -d C:\git\pybooktools\src\pybooktools `; new-tab --tabColor '#f59218' -d C:\git\ThinkingInTypes.github.io `; new-tab --tabColor '#009999' -d C:\git\ThinkingInTypes_Examples;
-
-
-
 
 # wt --title "lazy_guide code" --tabColor '#009999' -d C:\git\lazy_guide `; new-tab --title "Lazy Guide Chapters" --tabColor '#f59218' -d C:\git\LazyGuide\chapters\ `;
 
