@@ -3,6 +3,7 @@
 # . "C:\git\tools\Microsoft.PowerShell_profile.ps1"
 # Edit using `code $PROFILE`
 
+# Taskbar shortcut properties
 # target: "C:\Program Files (x86)\PowerShell\7\pwsh.exe" -File "C:\git\tools\console.ps1"
 
 $env:PSModulePath += ";C:\git\tools\modules"
