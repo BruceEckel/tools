@@ -1,3 +1,5 @@
+# console.ps1
+
 # Shortcut command: (Target)
 # pwsh -ExecutionPolicy Bypass -F C:\git\tools\console.ps1
 
@@ -12,6 +14,14 @@
 # Right-click on the newly created shortcut.
 # Choose Show more options (or hold Shift and right-click).
 # Select Pin to taskbar.
+
+### If you are getting multiple windows instead of all tabs in one:
+# Open Windows Terminal
+# Click the dropdown arrow (next to the tab bar) → Settings
+# Under Startup, check:
+# ✅ "Launch mode" → set to "New tab" or "Default"
+# ✅ "Launch on machine startup" (optional)
+# Under New instance behavior, check if "Launch in a new window" is selected — change it to "Use existing"
 
 
 # Enable or Disable "Do you want to close all tabs" in Windows Terminal Settings

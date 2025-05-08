@@ -1,3 +1,5 @@
+# C:\git\tools\Microsoft.PowerShell_profile.ps
+
 # Change C:\Users\bruce\OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 # To contain:
 # . "C:\git\tools\Microsoft.PowerShell_profile.ps1"
@@ -7,8 +9,6 @@ $env:PSModulePath += ";C:\git\tools\modules"
 Import-Module TabTools
 
 Set-Alias which get-command -Force
-
-# $Env:PATH += ";" + "C:\Users\bruce\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\Scripts"
 
 
 # Ensure Git's grep.exe is available
@@ -93,14 +93,11 @@ function a {
     Write-Output "No .venv directory found in the current directory or any parent directories."
 }
 
-
-
-
 function d {
     deactivate
 }
 
-# Function to activate the virtual environment if in the desired directory
+# Activate the virtual environment if in the desired directory
 function Enable-LazyGuideVenv {
     param (
         [Parameter(Mandatory = $true)]
