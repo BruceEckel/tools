@@ -45,8 +45,13 @@
 
 # wt --title "lazy_guide code" --tabColor '#009999' -d C:\git\lazy_guide `; new-tab --title "Lazy Guide Chapters" --tabColor '#f59218' -d C:\git\LazyGuide\chapters\ `;
 
-Open-VenvTabs @(
-    @{ Path = "C:\git\pybooktools\src\pybooktools"; Color = "#CCCC00" },
-    @{ Path = "C:\git\ThinkingInTypes.github.io"; Color = "#f59218" },
-    @{ Path = "C:\git\ThinkingInTypes_Examples"; Color = "#009999" }
+#Open-VenvTabs @(
+#    @{ Path = "C:\git\pybooktools\src\pybooktools"; Color = "#CCCC00" },
+#    @{ Path = "C:\git\ThinkingInTypes.github.io"; Color = "#f59218" },
+#    @{ Path = "C:\git\ThinkingInTypes_Examples"; Color = "#009999" }
+#)
+Open-Tabs @(
+    @{ Path = "C:\git\ThinkingInPython"; Color = "#CCCC00"; Title = "Claude"; Command = "claude --dangerously-skip-permissions" },
+    @{ Path = "C:\git\ThinkingInPython"; Color = "#f59218"; Title = "Verify"; Command = "make verify" },
+    @{ Path = "C:\git\ThinkingInPython\Examples"; Color = "#009999"; Title = "Examples"; Command = "python --version" }
 )
