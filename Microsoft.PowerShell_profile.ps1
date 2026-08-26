@@ -52,8 +52,16 @@ function prompt {
     $folder = Split-Path -Path (Get-Location) -Leaf
     $host.UI.RawUI.WindowTitle = if ($folder) { $folder } else { "PowerShell" }
 
+    # Tell Windows Terminal the current directory (OSC 9;9), so
+    # duplicated tabs/panes open in the same directory
+    $loc = $ExecutionContext.SessionState.Path.CurrentLocation
+    $osc = ""
+    if ($loc.Provider.Name -eq "FileSystem") {
+        $osc = "$([char]27)]9;9;`"$($loc.ProviderPath)`"$([char]27)\"
+    }
+
     # Return the default prompt
-    "PS $($ExecutionContext.SessionState.Path.CurrentLocation)$('>' * ($nestedPromptLevel + 1)) "
+    "$osc" + "PS $loc$('>' * ($nestedPromptLevel + 1)) "
 }
 
 function a {
