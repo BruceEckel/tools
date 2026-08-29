@@ -161,3 +161,7 @@ $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
     Import-Module "$ChocolateyProfile"
 }
+
+# ThinkingInPython: the `make` menu records the target it ran in this
+# session's history, so Up-arrow repeats it (tools/menu_history.ps1).
+. C:\git\ThinkingInPython\tools\menu_history.ps1
